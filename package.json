@@ -1,0 +1,19 @@
+{
+  "name": "WatchContract",
+  "version": "1.0.0",
+  "description": "Watching token transfers and make relevant entry on the other chain.",
+  "main": "index.js",
+  "scripts": {
+    "buildWatch": "tsc -w",
+    "start": "node ./lib/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ethereumjs/tx": "^3.0.2",
+    "typescript": "^4.2.2",
+    "web3": "^1.3.4"
+  }
+}
