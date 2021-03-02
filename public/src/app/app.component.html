@@ -1,0 +1,119 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a href="" title="B21"><img alt="B21" height="70" src="../assetsets/images/logo.png" width="150"></a>
+  <a *ngIf="!isMetaMaskInstalled()" class="theme-btn connectButton" href="https://metamask.io/download" target="_blank">Download MetaMask
+    <span class="fas fa-caret-right"></span>
+  </a>
+  <button (click)="connectAccounts()" *ngIf="isMetaMaskInstalled() && !account" class="theme-btn connectButton">{{connectButtonText}}
+    <span class="fas fa-caret-right"></span>
+  </button>
+  <h5 *ngIf="account">{{account}}</h5>
+</nav>
+
+<section class="banner-area">
+  <svg class="banner-svg" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M0,192L26.7,197.3C53.3,203,107,213,160,234.7C213.3,256,267,288,320,282.7C373.3,277,427,235,480,208C533.3,181,587,171,640,186.7C693.3,203,747,245,800,240C853.3,235,907,181,960,144C1013.3,107,1067,85,1120,96C1173.3,107,1227,149,1280,154.7C1333.3,160,1387,128,1413,112L1440,96L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z"
+      fill-opacity="1"></path>
+  </svg>
+  <div class="banner-fluid">
+    <div class="banner-item-wrap">
+      <div class="banner-item-table">
+        <div class="banner-item-tablecell">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="banner-content text-left">
+                  <div class="section-heading">
+                    <p class="section__meta">B21 (ERC20) <span><i class="fas fa-exchange-alt"></i></span> BB21 (BEP20)</p>
+                    <h2 class="section__title">Ethereum
+                      <span><i class="fa fa-exchange-alt"></i></span>
+                      Binance Smart Chain Bridge</h2>
+                    <div style="display: flex; align-items: center;">
+                      <div class="b21-logo"><img class="img-fluid" src="../assetsets/images/b21-logo.png" style="padding-left: 0;">
+                      </div>
+                      <div>
+                        <span class="b21-logo" style="color: #4c4a4a;"><i class="fa fa-exchange-alt"></i></span>
+                      </div>
+                      <div class="b21-logo"><img class="img-fluid" src="../assetsets/images/bb21-logo.png"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div [ngClass]="{'flex-container-reverse':isBSCNetwork(),'flex-container':isEthereumNetwork()}" class="d-flex flex-column" id="flex-container">
+                  <div class="currency-container">
+                    <h5>Ethereum Mainnet</h5>
+                    <div class="currency">
+                      <select id="currency-one">
+                        <option selected value="B21 ERC20 balance">B21 ERC20 balance</option>
+                      </select>
+                      <!--                    <input placeholder="1000" type="number">-->
+                      <h5><span class="pr-3">{{b21Balance}}</span></h5>
+                    </div>
+                  </div>
+
+                  <div class="swap-rate-container">
+                    <button class="btn" id="swap">
+                      <i class="fa fa-exchange-alt"></i>
+                    </button>
+                    <div class="rate" id="rate"></div>
+                  </div>
+
+                  <div class="currency-container">
+                    <h5>Binance Smart Chain</h5>
+                    <div class="currency">
+                      <select id="currency-two">
+                        <option selected value="BB21 BEP20 balance">BB21 BEP20 balance</option>
+                      </select>
+                      <!--                    <input placeholder="200" type="number">-->
+                      <h5><span class="pr-3">{{bb21Balance}}</span></h5>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <form [formGroup]="transferForm">
+                  <div class="currency-container">
+                    <div class="currency currency-2">
+                      <input formControlName="amount" id="amount" placeholder="Enter Amount to be Transferred" type="number"/>
+                      <div class="btn-box" style="margin-right: 10px;">
+                        <button (click)="transferTokens()" [disabled]="isUnSupportedNetwork() || disableButton" [ngStyle]="{'background-color': disableButton ? 'gray' : '' }"
+                                class="theme-btn">Transfer <span
+                          class="fas fa-caret-right"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <span *ngIf="statusSpanText">{{statusSpanText}}</span>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="footer-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="copy-right">
+          <p class="copy__desc">
+            &copy; Copyright 2021.
+            <span class="fa fa-heart"></span> B21 <a href="www.b21.io"></a>
+          </p>
+          <div class="social-icons">
+            <a href="https://t.me/B21Official" target="_blank"><i class="fa fa-telegram"></i></a>
+            <a href="https://twitter.com/B21Official" target="_blank"><i class="fa fa-twitter"></i></a>
+          </div>
+          <ul class="condition-links">
+            <li><a href="#">Terms of Use</a></li>
+            <li style="margin-left: 10px;"><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
