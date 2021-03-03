@@ -4,6 +4,7 @@
   "description": "Watching token transfers and make relevant entry on the other chain.",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "buildWatch": "tsc -w",
     "start": "node ./lib/index",
     "test": "echo \"Error: no test specified\" && exit 1"
