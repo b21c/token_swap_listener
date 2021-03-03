@@ -1,6 +1,6 @@
 {
-  "name": "WatchContract",
-  "version": "1.0.0",
+  "name": "token_swap_listener",
+  "version": "1.0.1",
   "description": "Watching token transfers and make relevant entry on the other chain.",
   "main": "index.js",
   "scripts": {
