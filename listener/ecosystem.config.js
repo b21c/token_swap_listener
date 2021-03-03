@@ -30,7 +30,7 @@ module.exports = {
         BSC_CHAIN: 'mainnet',
         BSC_HARD_FORK: 'istanbul',
         BSC_GAS_FEE: 20,
-        BSC_GAS_LIMIT: 21000
+        BSC_GAS_LIMIT: 210000
       },
     },    {
       name: "bsc_listener",
@@ -62,7 +62,7 @@ module.exports = {
         BSC_CHAIN: 'mainnet',
         BSC_HARD_FORK: 'istanbul',
         BSC_GAS_FEE: 20,
-        BSC_GAS_LIMIT: 21000
+        BSC_GAS_LIMIT: 210000
       },
     },
   ],
